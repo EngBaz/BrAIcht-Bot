@@ -11,7 +11,8 @@ This project presents BrAIcht, a chatbot which objective is to create plays in t
 
 ## Introduction
 
-The project 
+The BrAIcht project introduces an AI chatbot that creates plays in the style of the famous German playwright Bertolt Brecht. 
+The project utilizes Retrieval Augmented Generation (RAG) techniques using GROQ Llama 3.1, LangChain and Streamlit.
 
 ## Setup
 
