@@ -6,7 +6,6 @@ This project presents BrAIcht, a chatbot which objective is to create plays in t
 
 - [Introduction](#introduction)
 - [Setup](#setup)
-- [Usage](#usage)
 - [References](#References)
 
 ## Introduction
