@@ -43,8 +43,6 @@ def extract_data_and_create_retriever():
                 "brecht_dataset\Mutter.txt", "brecht_dataset\Schweyk.txt", "brecht_dataset\Simone.txt", 
                 "brecht_dataset\TrommelnDerNacht.txt",
                 ]
-        
-    #file_path = "documents\Internship_Report.pdf"
 
     plays = []
 
