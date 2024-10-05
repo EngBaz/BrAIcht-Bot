@@ -1,0 +1,12 @@
+langchain
+faiss-cpu
+langchain-community
+langchain_experimental
+cohere
+rank_bm25
+langchain-cohere
+langchain-huggingface
+langchain-groq
+pypdf
+streamlit
+langchain_google_genai
