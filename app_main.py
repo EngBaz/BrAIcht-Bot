@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 
-from brAIcht_utilities import*
+from app_utilities import *
 from langchain_groq import ChatGroq
 from langchain.schema import HumanMessage, AIMessage, SystemMessage
 
@@ -31,7 +31,7 @@ def main():
         temperature = st.number_input("Select a temperature value:", min_value=0.0, max_value=2.0, value=0.0)
         
     # Load the LLM from Groq with specified parameters
-    llm = ChatGroq(model="llama-3.1-70b-versatile", temperature=temperature, max_tokens=max_new_tokens)
+    llm = ChatGroq(model="llama-3.2-3b-preview", temperature=temperature, max_tokens=max_new_tokens)
     
     st.title("BrAIcht Bot🤖")
 

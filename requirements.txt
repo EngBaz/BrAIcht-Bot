@@ -10,3 +10,17 @@ langchain-groq
 pypdf
 streamlit
 langchain_google_genai
+
+torch
+torchvision
+torchaudio
+transformers
+datasets
+accelerate 
+numpy 
+pandas
+scikit-learn 
+bitsandbytes 
+peft 
+trl
+matplotlib

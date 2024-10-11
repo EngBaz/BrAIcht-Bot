@@ -26,22 +26,22 @@ def extract_data_and_create_retriever():
         reranking techniques to enhance search efficiency.
     """
     
-    file_paths = ["brecht_dataset/arturo.txt", "brecht_dataset\Baal.txt", "brecht_dataset\Badner Lehrstuck.txt",
-                "brecht_dataset\corolian.txt", "brecht_dataset\Der kaukasische Kreidekreis.txt", 
-                "brecht_dataset\Dialoge aus dem Messingkauf.txt",
-                "brecht_dataset\die Ausnahme und die Regel.txt", "brecht_dataset\Die Bibel.txt", 
-                "brecht_dataset\Die heilige Johanna der Schlachthofe .txt",
-                "brecht_dataset\DIE RUNDKOPFE UND DIE SPITZKOPFE.txt", 
-                "brecht_dataset\Die sieben Todsünden der Kleinbürger.txt",
-                "brecht_dataset\Die-Gewehre der Frau Carrar.txt", "brecht_dataset\Don.txt", 
-                "brecht_dataset\dreigroschenoper-2908-3.txt",
-                "brecht_dataset\Guter Mensch Sezuan.txt", "brecht_dataset\Herr Puntila und sein Knecht Matti.txt",
-                "brecht_dataset\hochzeit.txt", "brecht_dataset\Im Dickicht der Städte.txt", "brecht_dataset\jasager.txt",
-                "brecht_dataset\Leben des Galilei.txt", "brecht_dataset\lindeberghs.txt", "brecht_dataset\Lukullus.txt",
-                "brecht_dataset\mann-ist-mann-2.txt", "brecht_dataset\massnahme.txt", 
-                "brecht_dataset\Mutter Courage und ihre Kinder.txt",
-                "brecht_dataset\Mutter.txt", "brecht_dataset\Schweyk.txt", "brecht_dataset\Simone.txt", 
-                "brecht_dataset\TrommelnDerNacht.txt",
+    file_paths = ["data/brecht_plays/arturo.txt", "data/brecht_plays/Baal.txt", "data/brecht_plays/Badner Lehrstuck.txt",
+                "data/brecht_plays/corolian.txt", "data/brecht_plays/Der kaukasische Kreidekreis.txt", 
+                "data/brecht_plays/Dialoge aus dem Messingkauf.txt",
+                "data/brecht_plays/die Ausnahme und die Regel.txt", "data/brecht_plays/Die Bibel.txt", 
+                "data/brecht_plays/Die heilige Johanna der Schlachthofe .txt",
+                "data/brecht_plays/DIE RUNDKOPFE UND DIE SPITZKOPFE.txt", 
+                "data/brecht_plays/Die sieben Todsünden der Kleinbürger.txt",
+                "data/brecht_plays/Die-Gewehre der Frau Carrar.txt", "data/brecht_plays/Don.txt", 
+                "data/brecht_plays/dreigroschenoper-2908-3.txt",
+                "data/brecht_plays/Guter Mensch Sezuan.txt", "data/brecht_plays/Herr Puntila und sein Knecht Matti.txt",
+                "data/brecht_plays/hochzeit.txt", "data/brecht_plays/Im Dickicht der Städte.txt", "data/brecht_plays/jasager.txt",
+                "data/brecht_plays/Leben des Galilei.txt", "data/brecht_plays/lindeberghs.txt", "data/brecht_plays/Lukullus.txt",
+                "data/brecht_plays/mann-ist-mann-2.txt", "data/brecht_plays/massnahme.txt", 
+                "data/brecht_plays/Mutter Courage und ihre Kinder.txt",
+                "data/brecht_plays/Mutter.txt", "data/brecht_plays/Schweyk.txt", "data/brecht_plays/Simone.txt", 
+                "data/brecht_plays\TrommelnDerNacht.txt",
                 ]
 
     plays = []

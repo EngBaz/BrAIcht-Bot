@@ -3,3 +3,7 @@
 documents
 brecht_dataset
 __pycache__
+data
+log_output
+loss_plot
+finetuned_model
