@@ -30,13 +30,15 @@ To setup this project on your local machine, follow the below steps:
 
 ## References
 
-[1] Hybrid RAG: https://arxiv.org/pdf/2408.05141
+[1] QLoRA: https://arxiv.org/abs/2305.14314
 
-[2] Rerankers: https://arxiv.org/abs/2409.07691
+[2] Hybrid RAG: https://arxiv.org/pdf/2408.05141
 
-[3] Corrective-RAG: https://arxiv.org/abs/2401.15884
+[3] Rerankers: https://arxiv.org/abs/2409.07691
 
-[4] https://python.langchain.com/docs/tutorials/rag/
+[4] Corrective-RAG: https://arxiv.org/abs/2401.15884
+
+[5] https://python.langchain.com/docs/tutorials/rag/
 
 
 
