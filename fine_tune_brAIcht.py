@@ -1,5 +1,5 @@
 from peft import PeftModel
-from fine_tuning_utilities import *
+from fine_tune_utilities import *
 
 
 log_output_path = "/content/drive/MyDrive/BrAIcht/log_output"
