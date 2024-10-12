@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 
-from utilities import *
+from rag_utilities import *
 from langchain_groq import ChatGroq
 from langchain.schema import HumanMessage, AIMessage, SystemMessage
 
