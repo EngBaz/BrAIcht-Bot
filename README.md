@@ -1,13 +1,9 @@
-# BrAIcht Bot with LangChain, FAISS, Groq Llama 3.1 and Streamlit
-
-This project presents BrAIcht, a chatbot which objective is to create plays in the style of the famous German playwright Bertolt Brecht.
-
-![brAIcht](images/brAIcht.png)
-
-## Introduction
+# BrAIcht, a theatrical agent that speaks like Bertolt Brecht
 
 The BrAIcht project introduces an AI chatbot that creates plays in the style of the famous German playwright Bertolt Brecht. 
-The project utilizes Retrieval Augmented Generation (RAG) techniques using GROQ Llama 3.1, FAISS vector store, LangChain and Streamlit.
+The project utilizes Retrieval Augmented Generation (RAG) techniques using Groq Llama 3.2, FAISS, LangChain, and Streamlit.
+
+![brAIcht](images/brAIcht.png)
 
 ## Setup
 
