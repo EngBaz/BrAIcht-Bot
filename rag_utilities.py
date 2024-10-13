@@ -86,7 +86,6 @@ def extract_data_and_create_retriever():
     
     return retriever
 
-
 # A function to stream the output
 def stream_data(response):
     for word in response.split(" "):

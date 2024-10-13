@@ -92,10 +92,8 @@ def get_dataset(train_data_path, validation_data_path):
         validation_data_path (str): Path to the validation data file
 
     Returns:
-        formatted_train_dataset: A dataset containing the formatted training data, with instruction and response 
-        wrapped in special tokens
-        formatted_validation_dataset: A dataset containing the formatted validation data, similarly wrapped in 
-        special tokens
+        formatted_train_dataset: A dataset containing the formatted training data
+        formatted_validation_dataset: A dataset containing the formatted validation data
     """
 
     train_data = pd.read_csv(train_data_path)
@@ -123,7 +121,7 @@ def train_args(output_dir, train_data, validaiton_data, model_path):
         model_path (str): Path to the pre-trained model
 
     Returns:
-        trainer: A trainer object configured for supervised fine-tuning (SFT), ready to train the model with specified 
+        trainer: A trainer object configured for supervised fine-tuning, ready to train the model with specified 
         training arguments
     """
 
