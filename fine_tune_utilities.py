@@ -9,7 +9,7 @@ from peft import (LoraConfig,
                   get_peft_model,
 )
 from transformers import (AutoModelForCausalLM,
-                          AutoTokenizer, BitsAndBytesConfig,
+                          BitsAndBytesConfig,
                           TrainingArguments,
 )
 
@@ -53,22 +53,14 @@ def load_model(model_path):
     model.config.use_cache = False
     model.config.pretraining_tp = 1
 
-    tokenizer = AutoTokenizer.from_pretrained(model_path,
-                                              model_max_length=4096,
-                                              add_eos_token=True,
-                                              )
-    tokenizer.pad_token = tokenizer.eos_token
-
-    tokenizer.padding_side = "right"
-
     config = LoraConfig(
       r=32,
       lora_alpha=16,
       bias="none",
       lora_dropout=0.1,
       target_modules=[
-        "q_proj", "k_proj", "v_proj", "o_proj",
-        "gate_proj", "up_proj", "down_proj", "lm_head"],
+          "q_proj", "k_proj", "v_proj", "o_proj",
+          "gate_proj", "up_proj", "down_proj", "lm_head"],
       task_type="CAUSAL_LM",
     )
 
@@ -76,11 +68,11 @@ def load_model(model_path):
     model.gradient_checkpointing_enable()
     model = prepare_model_for_kbit_training(model)
 
-    return model, tokenizer, config
+    return model, config
 
 
 
-def get_dataset(train_data_path, validation_data_path):
+def get_dataset(train_data_path, validation_data_path, tokenizer):
     
     """
     Loads and formats training and validation datasets, preparing them for language model fine-tuning 
@@ -98,8 +90,8 @@ def get_dataset(train_data_path, validation_data_path):
     train_data = pd.read_csv(train_data_path)
     validation_data = pd.read_csv(validation_data_path)
 
-    train_data['text'] = '<s>[INST] ' + train_data['instruction'] + ' [/INST]\n' + train_data['response'] + '\n</s>'
-    validation_data['text'] = '<s>[INST] ' + validation_data['instruction'] + ' [/INST]\n' + validation_data['response'] + '\n</s>'
+    train_data['text'] = '[INST] ' + train_data['instruction'] + ' [/INST]\n' + train_data['response'] + '\n' + tokenizer.eos_token     
+    validation_data['text'] = '[INST] ' + validation_data['instruction'] + ' [/INST]\n' + validation_data['response'] + '\n' + tokenizer.eos_token 
 
     formatted_train_dataset = Dataset.from_pandas(train_data[['text']])
     formatted_validation_dataset = Dataset.from_pandas(validation_data[['text']])
