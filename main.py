@@ -71,7 +71,7 @@ def main():
     retriever = extract_data_and_create_retriever()
 
     # Capture user input for questions
-    if question := st.chat_input("Ask a question"):
+    if question := st.chat_input("Enter a message"):
         
         # Store the user's question in the session messages
         st.session_state.messages.append({"role": "user", "content": question})
