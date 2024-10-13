@@ -20,7 +20,7 @@ tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "right"
 
 # Import the base model to merge with the adapters weights
-model = AutoModelForCausalLM.from_pretrained(model_path,
+base_model = AutoModelForCausalLM.from_pretrained(model_path,
                                              trust_remote_code=True,
                                              #attn_implementation="flash_attention_2",
                                             ) 
@@ -32,6 +32,6 @@ trainer.train()
 
 trainer.model.save_pretrained(qlora_model_path)
 
-merged_model = PeftModel.from_pretrained(model, qlora_model_path)
+merged_model = PeftModel.from_pretrained(base_model, qlora_model_path)
 merged_model = merged_model.merge_and_unload()
 merged_model.save_pretrained(merged_model_path, safe_serialization=True)
