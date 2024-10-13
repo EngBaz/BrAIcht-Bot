@@ -28,10 +28,11 @@ base_model = AutoModelForCausalLM.from_pretrained(model_path,
 train_dataset, validation_dataset = get_dataset(train_dataset_path, validation_dataset_path, tokenizer)
 
 trainer = train_args(log_output_path, train_dataset, validation_dataset, model_path)
-trainer.train()
 
+trainer.train()
 trainer.model.save_pretrained(qlora_model_path)
 
 merged_model = PeftModel.from_pretrained(base_model, qlora_model_path)
 merged_model = merged_model.merge_and_unload()
+
 merged_model.save_pretrained(merged_model_path, safe_serialization=True)
