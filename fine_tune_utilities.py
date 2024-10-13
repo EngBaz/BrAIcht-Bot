@@ -19,15 +19,14 @@ logger = logging.getLogger(__name__)
 
 def load_model(model_path):
     """
-    Loads and configures a quantized model with LoRA fine-tuning, enabling 
-    efficient training for language modeling tasks.
+    Loads and configures a quantized model with LoRA fine-tuning
 
     Args:
-        model_path (str): Path to the pre-trained model.
+        model_path (str): Path to the pre-trained model
 
     Returns:
-        model: The language model, configured for quantized low-bit training and equipped with LoRA layers.
-        tokenizer: The tokenizer associated with the model, with a maximum sequence length and padding settings
+        model: The language model which is configured for quantized low-bit training and equipped with LoRA layers
+        tokenizer: The tokenizer associated with the model with a maximum sequence length and padding settings
         config: The LoRA configuration used for model fine-tuning
     """
 
