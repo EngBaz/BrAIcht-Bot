@@ -1,6 +1,6 @@
 from peft import PeftModel
 from transformers import AutoTokenizer
-from fine_tune_utilities import *
+from QloraTrainer import *
 
 
 log_output_path = "/content/drive/MyDrive/BrAIcht/log_output"
@@ -22,7 +22,6 @@ tokenizer.padding_side = "right"
 # Import the base model to merge with the adapters weights
 base_model = AutoModelForCausalLM.from_pretrained(model_path,
                                                   trust_remote_code=True,
-                                                  torch_dtype=torch.float16,
                                                   #attn_implementation="flash_attention_2",
                                                 ) 
 
