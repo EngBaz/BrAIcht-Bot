@@ -1,4 +1,4 @@
-from QloraTrainer import *
+from qlora_trainer import *
 
 
 log_output_path = "/content/drive/MyDrive/BrAIcht/log_output"
