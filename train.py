@@ -1,5 +1,3 @@
-from peft import PeftModel
-from transformers import AutoTokenizer
 from QloraTrainer import *
 
 
@@ -10,39 +8,18 @@ model_path = "meta-llama/Llama-3.2-3B-Instruct"
 qlora_model_path = "/content/drive/MyDrive/BrAIcht/qlora_model"
 merged_model_path = "/content/drive/MyDrive/BrAIcht/finetuned_model"
 
-# Import the tokenizer
-tokenizer = AutoTokenizer.from_pretrained(model_path,
-                                          model_max_length=4096,
-                                          add_eos_token=True,
-                                          )
-tokenizer.pad_token = tokenizer.eos_token
+if __name__=="__main__":
+  
+  print("Load base model...")              
+  model, tokenizer = load_base_model(model_path)                                                                         
 
-tokenizer.padding_side = "right"
+  print("Preparing and formatting the dataset...")
+  train_dataset, validation_dataset = get_dataset(train_dataset_path, validation_dataset_path, tokenizer)
 
-# Import the base model to merge with the adapters weights
-base_model = AutoModelForCausalLM.from_pretrained(model_path,
-                                                  trust_remote_code=True,
-                                                  #attn_implementation="flash_attention_2",
-                                                ) 
+  print("Start training")
+  train(log_output_path, train_dataset, validation_dataset, qlora_model_path, model, tokenizer)
 
-train_dataset, validation_dataset = get_dataset(train_dataset_path, 
-                                                validation_dataset_path, 
-                                                tokenizer,
-                                                )
+  print("Merge and save the model")
+  merge_and_save(model_path, qlora_model_path, merged_model_path)
 
-trainer = train_args(log_output_path, 
-                     train_dataset, 
-                     validation_dataset, 
-                     model_path,
-                     )
 
-trainer.train()
-trainer.model.save_pretrained(qlora_model_path)
-
-merged_model = PeftModel.from_pretrained(base_model, 
-                                         qlora_model_path,
-                                         )
-
-merged_model = merged_model.merge_and_unload()
-
-merged_model.save_pretrained(merged_model_path)
