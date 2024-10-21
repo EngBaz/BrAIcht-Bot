@@ -14,17 +14,9 @@ from langchain_community.document_loaders import PyPDFLoader
 
 
 def extract_data_and_create_retriever():
-    """
-    Constructs a retrieval system designed to store and access relevant 
-    documents based on user input using FAISS vectorstore.
     
-    Args:
-        None
-
-    Returns:
-        retriever: A system that integrates hybrid search methods and 
-        reranking techniques to enhance search efficiency.
-    """
+    """ Constructs a retrieval system designed to store and access relevant 
+    documents based on user input using FAISS vectorstore. """
     
     file_paths = ["data/brecht_plays/arturo.txt", "data/brecht_plays/Baal.txt", "data/brecht_plays/Badner Lehrstuck.txt",
                 "data/brecht_plays/corolian.txt", "data/brecht_plays/Der kaukasische Kreidekreis.txt", 
@@ -88,6 +80,7 @@ def extract_data_and_create_retriever():
 
 # A function to stream the output
 def stream_data(response):
+    
     for word in response.split(" "):
         yield word + " "
         time.sleep(0.06)
