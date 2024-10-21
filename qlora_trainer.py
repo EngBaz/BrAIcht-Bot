@@ -18,7 +18,7 @@ from transformers import (AutoModelForCausalLM,
 
 def load_base_model(model_path):
     
-    """Loads and configures a quantized model with LoRA fine-tuning."""
+    """ Loads and configures a quantized model with LoRA fine-tuning """
 
     bnb_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_use_double_quant=False, bnb_4bit_quant_type="nf4",
                                     bnb_4bit_compute_dtype=torch.bfloat16)
@@ -39,7 +39,7 @@ def load_base_model(model_path):
 
 def get_dataset(train_data_path, validation_data_path, tokenizer):
     
-    """Loads and formats the train and validation datasets."""
+    """ Loads and formats the train and validation datasets """
 
     train_data = pd.read_csv(train_data_path)
     validation_data = pd.read_csv(validation_data_path)
@@ -55,10 +55,7 @@ def get_dataset(train_data_path, validation_data_path, tokenizer):
 
 def train(output_dir, train_data, validation_data, qlora_model_path, model, tokenizer):
     
-    """
-    Set up the LoRA configuration and trains the model.
-    
-    """
+    """ Set up the LoRA configuration and trains the model """
 
     config = LoraConfig(r=32, lora_alpha=16, bias="none", lora_dropout=0.1,
                         target_modules=[
@@ -124,7 +121,7 @@ def merge_and_save(model_path, qlora_model_path, merged_model_path):
     
 def print_trainable_parameters(model):
     
-    """Prints the number of trainable parameters in the model."""
+    """Prints the number of trainable parameters in the model """
     
     trainable_params = 0
     all_param = 0
