@@ -29,7 +29,7 @@ def load_base_model(model_path):
     model.gradient_checkpointing_enable()
     model = prepare_model_for_kbit_training(model)
     
-    tokenizer = AutoTokenizer.from_pretrained(model_path, device_map = "auto", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_path, device_map="auto", trust_remote_code=True)
     
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
@@ -44,8 +44,8 @@ def get_dataset(train_data_path, validation_data_path, tokenizer):
     train_data = pd.read_csv(train_data_path)
     validation_data = pd.read_csv(validation_data_path)
 
-    train_data['text'] = '[INST] ' + train_data['instruction'] + ' [/INST]\n' + train_data['response'] + '\n' + tokenizer.eos_token     
-    validation_data['text'] = '[INST] ' + validation_data['instruction'] + ' [/INST]\n' + validation_data['response'] + '\n' + tokenizer.eos_token 
+    train_data['text'] = '[INST] ' + train_data['instruction'] + ' [/INST]\n\n' + train_data['response'] + '\n\n' + tokenizer.eos_token     
+    validation_data['text'] = '[INST] ' + validation_data['instruction'] + ' [/INST]\n\n' + validation_data['response'] + '\n\n' + tokenizer.eos_token 
 
     train_dataset = Dataset.from_pandas(train_data[['text']])
     validation_dataset = Dataset.from_pandas(validation_data[['text']])
