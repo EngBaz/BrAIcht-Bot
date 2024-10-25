@@ -42,24 +42,13 @@ def extract_data_and_create_retriever():
         loader = TextLoader(path, encoding='utf-8')
         data = loader.load()
         plays.extend(data)  
-
-    #plays_text = [doc.page_content for doc in plays]
-    #combined_text = " ".join(plays_text)
-
-    #loader = PyPDFLoader(file_path)
-    #data = loader.load()
     
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-    #semantic_chunker = SemanticChunker(
-    #    embeddings,
-    #    breakpoint_threshold_type="percentile",
-    #)
-    #docs = semantic_chunker.create_documents([combined_text])
+
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=50)
     docs = text_splitter.split_documents(plays)
     
-    #vectorstore = FAISS.from_documents(plays, embeddings)
-    vectorstore = FAISS.from_documents(docs, OpenAIEmbeddings())
+    vectorstore = FAISS.from_documents(docs, embeddings)
             
     similarity_retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
     keyword_retriever = BM25Retriever.from_documents(docs)
