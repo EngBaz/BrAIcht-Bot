@@ -53,16 +53,11 @@ def extract_data_and_create_retriever():
     keyword_retriever = BM25Retriever.from_documents(docs)
     keyword_retriever.k = 5
     ensemble_retriever = EnsembleRetriever(retrievers=[similarity_retriever, keyword_retriever], 
-                                        weights=[0.5, 0.5],
-                                        )
+                                        weights=[0.5, 0.5])
 
     compressor = CohereRerank(model="rerank-multilingual-v3.0")
 
-    retriever = ContextualCompressionRetriever(
-        
-        base_compressor=compressor, 
-        base_retriever=ensemble_retriever,
-    )
+    retriever = ContextualCompressionRetriever(base_compressor=compressor, base_retriever=ensemble_retriever)
     
     return retriever
 
