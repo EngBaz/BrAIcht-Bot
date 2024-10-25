@@ -18,7 +18,8 @@ if __name__=="__main__":
         max_length=512,
         temperature=0.7,
         top_p=0.95,
-        repetition_penalty=1.15
+        repetition_penalty=1.15,
+        truncation=True
     )
     
     user_prompt = "What is your favorite movie?"
@@ -27,4 +28,4 @@ if __name__=="__main__":
     
     output = pipe(formatted_prompt)
     
-    print(output)
+    print(output[0]['generated_text'])
