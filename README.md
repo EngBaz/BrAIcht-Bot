@@ -8,7 +8,7 @@ The project utilizes Retrieval Augmented Generation (RAG) techniques using Groq 
 ## Setup
 
 To setup this project on your local machine, follow the below steps:
-1. Clone this repository: <code>git clone github.com/EngBaz/Hybrid-RAG-System</code>
+1. Clone this repository: <code>git clone github.com/EngBaz/BrAIcht-Bot</code>
 
 2. Create a virtual enviromnent
    ```console
