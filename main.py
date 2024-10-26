@@ -14,7 +14,7 @@ COHERE_API_KEY = os.environ["COHERE_API_KEY"]
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
  
-def main():
+if __name__=="main":
 
     # Configure the Streamlit page settings
     st.set_page_config(
@@ -105,9 +105,6 @@ def main():
             st.session_state["chat_history"].append(AIMessage(content=response.content))
             st.session_state["messages"].append({"role": "assistant", "content": response.content}) 
               
-if __name__=="__main__":
-    
-    main()
         
         
 
