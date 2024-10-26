@@ -81,8 +81,15 @@ if question := st.chat_input("Enter a message"):
         
     # Append the context and user question to chat history
     st.session_state["chat_history"].append(
-        HumanMessage(content=f"""\n\nNachfolgend der Kontext umgrenzte durch ```:\n\n```{context}```\n\n 
-                     Nachfolgend die Frage des Benutzers umgrenzte durch ```:\n\n```{question}```""")
+        HumanMessage(content=f"""\n\nNachfolgend der Kontext umgrenzte durch ```:
+                     \n\n
+                     ```{context}```
+                     \n\n 
+                     Nachfolgend die Frage des Benutzers umgrenzte durch ```:
+                     \n\n
+                     ```{question}```
+                     """
+                     )
         ) 
         
     # print(st.session_state["chat_history"])
