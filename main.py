@@ -76,9 +76,9 @@ if question := st.chat_input("Enter a message"):
     # Store the user's question in the session messages
     st.session_state.messages.append({"role": "user", "content": question})
         
-    # Retrieve context relevant to the user's question
+    # Retrieve context relevant to the user's input
     context = retriever.invoke(question)
-        
+    
     # Append the context and user question to chat history
     st.session_state["chat_history"].append(
         HumanMessage(content=f"""\n\n
@@ -93,7 +93,7 @@ if question := st.chat_input("Enter a message"):
                      )
         ) 
         
-    # print(st.session_state["chat_history"])
+    print(st.session_state["chat_history"])
     # Display the user's question in the chat
     with st.chat_message("user"): 
                 
