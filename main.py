@@ -14,7 +14,6 @@ COHERE_API_KEY = os.environ["COHERE_API_KEY"]
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
 
-
 # Configure the Streamlit page settings
 st.set_page_config(
     page_title="BrAIcht", 
@@ -29,7 +28,7 @@ with st.sidebar:
     temperature = st.number_input("Select a temperature value:", min_value=0.0, max_value=2.0, value=0.0)
         
 # Load the LLM from Groq with specified parameters
-llm = ChatGroq(model="llama-3.2-3b-preview", temperature=temperature, max_tokens=max_new_tokens)
+llm = ChatGroq(model="llama-3.1-70b-versatile", temperature=temperature, max_tokens=max_new_tokens)
     
 st.title("BrAIcht Bot🤖")
 
@@ -39,11 +38,11 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = [
         
         SystemMessage(content= """
-                      Du bist ein hilfreicher Assistent, dessen Aufgabe es ist, Theaterstücke zu verfassen, 
-                      die den einzigartigen Stil von Bertolt Brecht widerspiegeln. Ziel dieser Stücke ist es, 
-                      das Publikum in die historischen Werke dieses berühmten deutschen Dramatikers einzubeziehen. 
-                      Im untenstehenden Absatz, gekennzeichnet mit ####, findest du eine kurze Beschreibung von 
-                      Brechts Stil.
+                      
+                      Sie sind ein hilfreicher Assistent, dessen Aufgabe es ist, Szenen zu komponieren, die den einzigartigen 
+                      Stil von Bertolt Brecht widerspiegeln. Ziel dieser Szenen ist es, das Publikum in die historischen Stücke 
+                      dieses berühmten deutschen Dramatikers einzubeziehen. Eine kurze Beschreibung von Brechts Stil finden Sie 
+                      im folgenden mit #### gekennzeichneten Absatz:
                       
                       ####
                       Bertolt Brecht ist bekannt dafür, soziale und politische Themen in den Mittelpunkt zu stellen 
@@ -55,15 +54,18 @@ if "chat_history" not in st.session_state:
                       Dilemmata und Klassenkämpfe thematisieren, um zum Nachdenken anzuregen und sozialen Wandel zu bewirken.
                       ####
                       
-                      So wird das Gespräch ablaufen -- der Nutzer wird ein Stichwort geben, und darauf basierend wirst du eine 
-                      Szene im Stil von Brecht erstellen.
+                      Und so läuft das Gespräch ab: Der Benutzer gibt ein Stichwort und Sie erstellen darauf basierend eine Szene 
+                      im Stil Brechts.
                       
-                      Einige weitere Richtlinien, die du beim Erstellen der Szenen beachten solltest:
+                      Einige weitere Richtlinien, die Sie beim Erstellen der Szenen befolgen sollten:
                       
-                      - Nutze Brechts einfache und wirkungsvolle Sprache als Inspiration 
-                      - Konstruiere ein Stück mit zusammenhängenden Szenen
-                      - Damit du kohärente Szenen erstellen kannst, wird dir der Chatverlauf zur Verfügung gestellt
-                      BEACHTE ZULETZT, DASS DIE ANTWORT AUF DEUTSCH GEGEBEN WERDEN SOLL. 
+                      - Lassen Sie sich von Brechts einfacher und wirkungsvoller Sprache inspirieren
+                      - Die neu erstellte Szene sollte mit dem Kontext stimmig sein
+                      - Zu diesem Zweck sind der Chatverlauf, auf den sich die Erstellung einer stimmigen Szene stützen sollte, 
+                      und die letzte Benutzereingabe unten aufgeführt
+                      
+                      BEACHTEN SIE ZU GUTER LETZT, DASS DIE ANTWORT AUF DEUTSCH GEGEBEN WERDEN SOLLTE.
+                      
                       """
                       )
         ]
@@ -81,24 +83,24 @@ for message in st.session_state.messages:
 retriever = extract_data_and_create_retriever()
 
 # Capture user input for questions
-if question := st.chat_input("Enter a message"):
+if cue := st.chat_input("Enter a cue..."):
         
     # Store the user's question in the session messages
-    st.session_state.messages.append({"role": "user", "content": question})
+    st.session_state.messages.append({"role": "user", "content": cue})
         
     # Retrieve context relevant to the user's input
-    context = retriever.invoke(question)
+    context = retriever.invoke(cue)
     
     # Append the context and user question to chat history
     st.session_state["chat_history"].append(
         HumanMessage(content=f"""
-                     Untenstehend ist der Chatverlauf, gekennzeichnet durch ````:
+                     Unten ist der Chatverlauf, abgegrenzt durch ````:
                      
                      ````{context}````
                      
-                     Untenstehend ist die Frage des Nutzers, gekennzeichnet durch ``:
+                    Unten ist die Frage des Benutzers, abgegrenzt durch ``:
                      
-                     ``{question}``
+                     ``{cue}``
                      
                      """
                      )
@@ -108,7 +110,7 @@ if question := st.chat_input("Enter a message"):
     # Display the user's question in the chat
     with st.chat_message("user"): 
                 
-        st.write_stream(stream_data(question))
+        st.write_stream(stream_data(cue))
             
     # Generate and display the assistant's response
     with st.chat_message("assistant"):
