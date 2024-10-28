@@ -2,8 +2,8 @@ import json
 import matplotlib.pyplot as plt
 
 
-trainer_file_path = "/content/drive/MyDrive/BrAIcht/log_output/checkpoint-500/trainer_state.json"
-save_fig_path = "/content/drive/MyDrive/BrAIcht/train_validation_loss_plot/train_validation_loss.png"
+trainer_file_path = "./log_output/checkpoint-500/trainer_state.json"
+save_fig_path = "./plot_loss/train_validation_loss.png"
 
 
 with open(trainer_file_path, 'r') as f:
