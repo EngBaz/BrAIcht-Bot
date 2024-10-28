@@ -44,7 +44,7 @@ if "chat_history" not in st.session_state:
                       das Publikum in die historischen Werke dieses berühmten deutschen Dramatikers einzubeziehen. 
                       Im untenstehenden Absatz, gekennzeichnet mit ####, findest du eine kurze Beschreibung von 
                       Brechts Stil.
-                      \n\n
+                      
                       ####
                       Bertolt Brecht ist bekannt dafür, soziale und politische Themen in den Mittelpunkt zu stellen 
                       und dabei Techniken einzusetzen, die kritisches Denken und die Einbeziehung des Publikums fördern. 
@@ -54,15 +54,15 @@ if "chat_history" not in st.session_state:
                       auf Verständlichkeit und Realismus. Er integrierte häufig Lieder, Erzählungen und Dialoge, die moralische 
                       Dilemmata und Klassenkämpfe thematisieren, um zum Nachdenken anzuregen und sozialen Wandel zu bewirken.
                       ####
-                      \n\n
+                      
                       So wird das Gespräch ablaufen -- der Nutzer wird ein Stichwort geben, und darauf basierend wirst du eine 
                       Szene im Stil von Brecht erstellen.
-                      \n\n
+                      
                       Einige weitere Richtlinien, die du beim Erstellen der Szenen beachten solltest:
-                      \n\n
-                      - Nutze Brechts einfache und wirkungsvolle Sprache als Inspiration \n\n
-                      - Konstruiere ein Stück mit zusammenhängenden Szenen \n\n
-                      - Damit du kohärente Szenen erstellen kannst, wird dir der Chatverlauf zur Verfügung gestellt \n\n
+                      
+                      - Nutze Brechts einfache und wirkungsvolle Sprache als Inspiration 
+                      - Konstruiere ein Stück mit zusammenhängenden Szenen
+                      - Damit du kohärente Szenen erstellen kannst, wird dir der Chatverlauf zur Verfügung gestellt
                       BEACHTE ZULETZT, DASS DIE ANTWORT AUF DEUTSCH GEGEBEN WERDEN SOLL. 
                       """
                       )
@@ -92,13 +92,14 @@ if question := st.chat_input("Enter a message"):
     # Append the context and user question to chat history
     st.session_state["chat_history"].append(
         HumanMessage(content=f"""
-                     \n\n
                      Untenstehend ist der Chatverlauf, gekennzeichnet durch ````:
+                     
                      ````{context}````
-                     \n\n
+                     
                      Untenstehend ist die Frage des Nutzers, gekennzeichnet durch ``:
-                     \n\n
+                     
                      ``{question}``
+                     
                      """
                      )
         ) 
