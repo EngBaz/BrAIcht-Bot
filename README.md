@@ -26,6 +26,11 @@ To setup this project on your local machine, follow the below steps:
     ```
 5. run the streamlit app: <code> streamlit run main.py </code>
 
+## Related work
+
+We published an article issued from this project in the GENERATIVE ART conference in Venice.
+You can view the example file [here](https://raw.githubusercontent.com/EngBaz/BrAIcht-Bot/main/BrAIcht.pdf)
+
 ## References
 
 [1] QLoRA: https://arxiv.org/abs/2305.14314
