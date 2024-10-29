@@ -36,6 +36,8 @@ To prepare the text data for indexing, we use the <code>RecursiveCharacterTextSp
 
 We implement a <code>hybrid search</code> strategy for searching and retrieving relevant information from the FAISS vector store. This method combines <code>semantic search</code>, which uses <code>cosine similarity</code> to evaluate the proximity of vector representations, with <code>keyword search</code> based on <code>BM25</code>. Semantic search identifies relevant chunks by measuring the angle between vectors in the embedding space, effectively capturing nuanced meanings and relationships. The BM25 algorithm enhances this process by ranking documents based on keyword matches and <code>TF-IDF (Term Frequency - Inverse Document Frequency)</code> metrics. Together, these approaches ensure that the retrieval process is both contextual and precise, resulting in more accurate and relevant information being presented to the LLM.
 
+![RAG](images/rag_application.png)
+
 ## Related work
 
 We published an article issued from this project in the GENERATIVE ART conference in Venice.
