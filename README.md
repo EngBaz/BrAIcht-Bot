@@ -26,6 +26,11 @@ To setup this project on your local machine, follow the below steps:
     ```
 5. run the streamlit app: <code> streamlit run main.py </code>
 
+## Implementation
+
+This project implements a RAG pipeline to retrieve relevant context to a cue from a vector database. This information consists of Bertolt Brecht's plays. We then provide this context and the chat history to the
+LLM 
+
 ## Related work
 
 We published an article issued from this project in the GENERATIVE ART conference in Venice.
