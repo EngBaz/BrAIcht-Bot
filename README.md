@@ -29,7 +29,7 @@ To setup this project on your local machine, follow the below steps:
 ## Related work
 
 We published an article issued from this project in the GENERATIVE ART conference in Venice.
-You can download the related paper [BrAIcht PDF](https://raw.githubusercontent.com/EngBaz/BrAIcht-Bot/main/related_paper/BrAIcht.pdf).
+You can download the related paper [BrAIcht PDF](related_paper/BrAIcht.pdf)
 
 ## References
 
