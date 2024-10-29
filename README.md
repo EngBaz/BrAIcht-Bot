@@ -28,8 +28,7 @@ To setup this project on your local machine, follow the below steps:
 
 ## Implementation
 
-This project implements a RAG pipeline to retrieve relevant context to a cue from a vector database. This information consists of Bertolt Brecht's plays. We then provide this context and the chat history to the
-LLM 
+In this project, a Retrieval Augmented Generation (RAG) pipeline is developed that extracts the corresponding context in response to a clue from a vector database. The retrieved information includes the plays of Bertolt Brecht. This context is then forwarded to the language model (LLM) together with the chat history. In addition, the extracted context is enhanced by prompt engineering and "few-shot" prompting techniques so that the LLM is able to generate scenes and dialogues that are stylistically similar to Brecht's plays.
 
 ## Related work
 
