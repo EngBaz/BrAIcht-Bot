@@ -25,8 +25,10 @@ with st.sidebar:
     
     st.header("Model Settings") 
     max_new_tokens = st.number_input("Select a max token value:", min_value=1, max_value=8192, value=1000)
-    temperature = st.number_input("Select a temperature value:", min_value=0.0, max_value=2.0, value=0.0)
-        
+    temperature = st.number_input("Select a temperature:", min_value=0.0, max_value=2.0, value=0.0)
+    chunk_size = st.number_input("Select a chunk size:", min_value=0, max_value=10000, value=300)
+    chunk_overlap = st.number_input("Select a chunk overlap:", min_value=0, max_value=1000, value=75)
+            
 # Load the LLM from Groq with specified parameters
 llm = ChatGroq(model="llama-3.1-70b-versatile", temperature=temperature, max_tokens=max_new_tokens)
     
@@ -75,7 +77,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])  
         
-retriever = extract_data_and_create_retriever()
+retriever = extract_data_and_create_retriever(chunk_size, chunk_overlap)
 
 # Capture user input for questions
 if cue := st.chat_input("Enter a cue..."):

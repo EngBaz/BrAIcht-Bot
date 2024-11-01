@@ -1,5 +1,5 @@
 import time
-
+import streamlit as st
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import FAISS
@@ -11,8 +11,8 @@ from langchain_cohere import CohereRerank
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 
-
-def extract_data_and_create_retriever():
+@st.cache_resource
+def extract_data_and_create_retriever(size, overlap):
     
     """ Constructs a retrieval system designed to store and access relevant 
     documents based on user input using FAISS vectorstore. """
@@ -44,7 +44,7 @@ def extract_data_and_create_retriever():
     
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=150)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=size, chunk_overlap=overlap)
     docs = text_splitter.split_documents(plays)
     
     vectorstore = FAISS.from_documents(docs, embeddings)
