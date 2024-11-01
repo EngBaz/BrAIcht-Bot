@@ -28,9 +28,9 @@ To setup this project on your local machine, follow the below steps:
 
 ## Implementation
 
-In this project, a <code>Retrieval Augmented Generation (RAG)</code> pipeline is created to extract context from a <code>FAISS</code> vector database, which stores plays by Bertolt Brecht. This context, combined with chat history, is refined through prompt engineering and few-shot prompting to help the language model (LLM) generate text in Brecht's style.
+In this project, a <code>Retrieval Augmented Generation (RAG)</code> pipeline is created to extract context from a <code>FAISS</code> vector database containing plays by Bertolt Brecht. This context, together with the chat history, will be refined through prompt engineering and few-shot prompting to help the language model (LLM) generate text in Brecht's style.
 
-Text data is prepared for indexing using <code>RecursiveCharacterTextSplitter</code>, which splits documents into coherent chunks for effective retrieval. A hybrid search strategy combines <code>semantic search</code> with <code>cosine similarity</code> and <code>keyword search</code> using <code>BM25</code>. This dual approach improves retrieval accuracy by blending contextual understanding with keyword matching, providing the LLM with relevant information.
+The text data is prepared for indexing with the <code>RecursiveCharacterTextSplitter</code>, which splits the documents into coherent chunks for effective retrieval. A hybrid search strategy combines <code>semantic search</code> with <code>cosine similarity</code> and <code>keyword search</code> with <code>BM25</code>. This dual approach improves retrieval accuracy by combining contextual understanding with keyword matching and providing relevant information to the LLM.
 
 ![RAG](images/rag_application.png)
 
