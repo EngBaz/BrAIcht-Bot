@@ -44,7 +44,7 @@ def extract_data_and_create_retriever():
     
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=50)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=150)
     docs = text_splitter.split_documents(plays)
     
     vectorstore = FAISS.from_documents(docs, embeddings)
