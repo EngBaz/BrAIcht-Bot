@@ -36,7 +36,7 @@ The text data is prepared for indexing with the <code>RecursiveCharacterTextSpli
 
 ## Related work
 
-We published an article issued from this project in the GENERATIVE ART conference in Venice.
+An article is published from this project in the GENERATIVE ART conference in Venice.
 You can read the related paper [BrAIcht, a theatrical agent that speaks like Bertolt Brecht's characters](related_paper/BrAIcht.pdf).
 
 Please not that the project in this github repo is an updated version of the published paper.
