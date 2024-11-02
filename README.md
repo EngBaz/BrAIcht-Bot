@@ -28,7 +28,7 @@ To setup this project on your local machine, follow the below steps:
 
 ## Implementation
 
-In the project, <code>QLoRA</code> is used to fine-tune large language models with two datasets: one with over <code>540 000</code> data points from German plays and another with more than <code>17 000</code> data points from Brecht's works. The performance of the model is then evaluated using BLEU score and perplexity.
+This project implements <code>QLoRA</code> to fine-tune large language models with two datasets: one with over <code>540 000</code> data points from German plays and another with more than <code>17 000</code> data points from Brecht's works. The performance of the model is then evaluated using BLEU score and perplexity.
 
 Additionally, a <code>Retrieval Augmented Generation (RAG)</code> pipeline is developped to reduce hallucinations and to extract context from a <code>FAISS</code> vector database containing plays by Bertolt Brecht. This context, together with the chat history, will be refined through prompt engineering and few-shot prompting to help the language model (LLM) generate text in Brecht's style.
 
