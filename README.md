@@ -1,4 +1,4 @@
-# BrAIcht, a theatrical agent that speaks like Bertolt Brecht
+r# BrAIcht, a theatrical agent that speaks like Bertolt Brecht
 
 The BrAIcht project introduces an AI chatbot that creates plays in the style of the famous German playwright Bertolt Brecht. 
 The project utilizes Retrieval Augmented Generation (RAG) techniques using <code>LLaMA 3</code>, <code>FAISS</code>, <code>LangChain</code>, and <code>Streamlit</code>.
@@ -28,8 +28,9 @@ To setup this project on your local machine, follow the below steps:
 
 ## Implementation
 
-In the project, <code>QLoRA</code> is used to fine-tune the large language models.
-In this project, a <code>Retrieval Augmented Generation (RAG)</code> pipeline is created to extract context from a <code>FAISS</code> vector database containing plays by Bertolt Brecht. This context, together with the chat history, will be refined through prompt engineering and few-shot prompting to help the language model (LLM) generate text in Brecht's style.
+This project implements <code>QLoRA</code> to fine-tune large language models with two datasets: one with over <code>540 000</code> data points from German plays and another with more than <code>17 000</code> data points from Brecht's works. The performance of the model is then evaluated using BLEU score and perplexity.
+
+Additionally, a <code>Retrieval Augmented Generation (RAG)</code> pipeline is developped to reduce hallucinations and to extract context from a <code>FAISS</code> vector database containing plays by Bertolt Brecht. This context, together with the chat history, will be refined through prompt engineering and few-shot prompting to help the language model (LLM) generate text in Brecht's style.
 
 The text data is prepared for indexing with the <code>RecursiveCharacterTextSplitter</code>, which splits the documents into coherent chunks for effective retrieval. A hybrid search strategy combines <code>semantic search</code> with <code>cosine similarity</code> and <code>keyword search</code> with <code>BM25</code>. This dual approach improves retrieval accuracy by combining contextual understanding with keyword matching and providing relevant information to the LLM.
 
