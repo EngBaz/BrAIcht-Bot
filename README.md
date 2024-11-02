@@ -28,9 +28,9 @@ To setup this project on your local machine, follow the below steps:
 
 ## Implementation
 
-This project implements <code>QLoRA</code> to fine-tune large language models with two datasets: one with over <code>540 000</code> data points from German plays and another with more than <code>17 000</code> data points from Brecht's works. The performance of the model is then evaluated using BLEU score and perplexity.
+This project implements <code>QLoRA</code> to fine-tune large language models with two datasets: one with over <code>540 000</code> data points from German plays and another with more than <code>17 000</code> data points from Brecht's works. The performance of the model is then evaluated using <code>BLEU score</code> and <code>perplexity</code>.
 
-Additionally, a <code>Retrieval Augmented Generation (RAG)</code> pipeline is developped to reduce hallucinations and to extract context from a <code>FAISS</code> vector database containing plays by Bertolt Brecht. This context, together with the chat history, will be refined through prompt engineering and few-shot prompting to help the language model (LLM) generate text in Brecht's style.
+Additionally, a Retrieval Augmented Generation (RAG) pipeline is developped to reduce hallucinations and to extract context from a <code>FAISS</code> vector database containing plays by Bertolt Brecht. This context, together with the chat history, will be refined through prompt engineering and few-shot prompting to help the language model (LLM) generate text in Brecht's style.
 
 The text data is prepared for indexing with the <code>RecursiveCharacterTextSplitter</code>, which splits the documents into coherent chunks for effective retrieval. A hybrid search strategy combines <code>semantic search</code> with <code>cosine similarity</code> and <code>keyword search</code> with <code>BM25</code>. This dual approach improves retrieval accuracy by combining contextual understanding with keyword matching and providing relevant information to the LLM.
 
