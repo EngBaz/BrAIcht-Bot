@@ -1,7 +1,7 @@
 # BrAIcht, a theatrical agent that speaks like Bertolt Brecht
 
 The BrAIcht project introduces an AI chatbot that creates plays in the style of the famous German playwright Bertolt Brecht. 
-The project utilizes Retrieval Augmented Generation (RAG) techniques using Groq Llama 3.2, FAISS, LangChain, and Streamlit.
+The project utilizes Retrieval Augmented Generation (RAG) techniques using <code>LLaMA</code>, FAISS, LangChain, and Streamlit.
 
 ![brAIcht](images/brAIcht.png)
 
