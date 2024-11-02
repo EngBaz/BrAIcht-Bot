@@ -40,12 +40,16 @@ def extract_data_and_create_retriever(size, overlap):
     for path in file_paths:
         loader = TextLoader(path, encoding='utf-8')
         data = loader.load()
-        plays.extend(data)  
+        plays.extend(data)
+        
+    play_texts = [doc.page_content for doc in plays]
     
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=size, chunk_overlap=overlap)
-    docs = text_splitter.split_documents(plays)
+    semantic_chunker = SemanticChunker(embeddings, breakpoint_threshold_type="percentile")
+    docs = semantic_chunker.create_documents(play_texts)
+    
+    #text_splitter = RecursiveCharacterTextSplitter(chunk_size=size, chunk_overlap=overlap)
+    #docs = text_splitter.split_documents(plays)
     
     vectorstore = FAISS.from_documents(docs, embeddings)
             
