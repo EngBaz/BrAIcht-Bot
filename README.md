@@ -53,7 +53,7 @@ Please not that the project in this github repo is an updated version of the pub
 
 [4] Corrective-RAG: https://arxiv.org/abs/2401.15884
 
-[5] https://python.langchain.com/docs/tutorials/rag/
+[5] LangChain: https://python.langchain.com/docs/tutorials/rag/
 
 
 
